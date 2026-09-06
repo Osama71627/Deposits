@@ -1,0 +1,126 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">المستودع</div>
+    <a href="/dashboard/" class="nav-item active"><i class="fas fa-home"></i> لوحة المستودع</a>
+    <a href="#" class="nav-item"><i class="fas fa-boxes"></i> إدارة الرفوف</a>
+    <a href="#" class="nav-item"><i class="fas fa-box-open"></i> الصناديق</a>
+    <a href="#" class="nav-item"><i class="fas fa-qrcode"></i> مسح QR</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">العمليات</div>
+    <a href="#" class="nav-item"><i class="fas fa-inbox"></i> استلام أغراض</a>
+    <a href="#" class="nav-item"><i class="fas fa-outdent"></i> تسليم أغراض</a>
+    <a href="#" class="nav-item"><i class="fas fa-clipboard-check"></i> جرد المخزون</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">التقارير</div>
+    <a href="#" class="nav-item"><i class="fas fa-file"></i> تقارير المستودع</a>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <div>
+        <h1>لوحة المستودع</h1>
+        <p>مستودع الرياض - المنطقة A</p>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-primary"><i class="fas fa-qrcode"></i> مسح QR</button>
+        <button class="btn btn-success"><i class="fas fa-plus"></i> تخزين جديد</button>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">سعة التخزين</span>
+            <div class="stat-icon icon-primary"><i class="fas fa-warehouse"></i></div>
+        </div>
+        <div class="stat-value">٨٢٪</div>
+        <div class="stat-change">٨٢٠ / ١٠٠٠ عنصر</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">في انتظار التخزين</span>
+            <div class="stat-icon icon-warning"><i class="fas fa-clock"></i></div>
+        </div>
+        <div class="stat-value">15</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">تم تسليمه اليوم</span>
+            <div class="stat-icon icon-success"><i class="fas fa-check"></i></div>
+        </div>
+        <div class="stat-value">28</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">الرفوف المتاحة</span>
+            <div class="stat-icon icon-info"><i class="fas fa-layer-group"></i></div>
+        </div>
+        <div class="stat-value">34 / 120</div>
+    </div>
+</div>
+
+<div class="grid-2">
+    <div class="card">
+        <div class="card-header">
+            <h3><i class="fas fa-inbox"></i> انتظار التخزين</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>الطلب</th><th>العميل</th><th>عدد القطع</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>#1520</td><td>أحمد محمد</td><td>3</td><td><button class="btn btn-sm btn-primary"><i class="fas fa-box"></i> تخزين</button></td></tr>
+                        <tr><td>#1519</td><td>نورة سعد</td><td>1</td><td><button class="btn btn-sm btn-primary"><i class="fas fa-box"></i> تخزين</button></td></tr>
+                        <tr><td>#1518</td><td>فيصل عمر</td><td>5</td><td><button class="btn btn-sm btn-primary"><i class="fas fa-box"></i> تخزين</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3><i class="fas fa-outdent"></i> انتظار التسليم</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>الطلب</th><th>العميل</th><th>الموقع</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>#1515</td><td>خالد العتيبي</td><td>رف A-15</td><td><button class="btn btn-sm btn-warning"><i class="fas fa-hand"></i> تسليم</button></td></tr>
+                        <tr><td>#1512</td><td>مريم الحربي</td><td>رف B-08</td><td><button class="btn btn-sm btn-warning"><i class="fas fa-hand"></i> تسليم</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-layer-group"></i> حالة الرفوف - المستودع A</h3>
+    </div>
+    <div class="card-body">
+        <div class="grid-3">
+            <div style="padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);text-align:center;">
+                <div style="font-size:13px;color:var(--text-muted);">المنطقة A</div>
+                <div style="font-size:24px;font-weight:700;color:#10b981;">٤٢ / ٥٠</div>
+                <div style="font-size:12px;">متاح 8</div>
+            </div>
+            <div style="padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);text-align:center;">
+                <div style="font-size:13px;color:var(--text-muted);">المنطقة B</div>
+                <div style="font-size:24px;font-weight:700;color:#f59e0b;">٣٨ / ٤٠</div>
+                <div style="font-size:12px;">متاح 2</div>
+            </div>
+            <div style="padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);text-align:center;">
+                <div style="font-size:13px;color:var(--text-muted);">المنطقة C</div>
+                <div style="font-size:24px;font-weight:700;color:#ef4444;">٢٠ / ٢٠</div>
+                <div style="font-size:12px;">ممتلئ</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,238 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الرئيسية</div>
+    <a href="/dashboard/" class="nav-item active">
+        <i class="fas fa-chart-pie"></i> لوحة التحكم
+    </a>
+    <a href="#" class="nav-item">
+        <i class="fas fa-map-marked-alt"></i> غرفة التحكم
+    </a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الإدارة</div>
+    <a href="#" class="nav-item"><i class="fas fa-users"></i> المستخدمين</a>
+    <a href="#" class="nav-item"><i class="fas fa-boxes"></i> المستودعات</a>
+    <a href="#" class="nav-item"><i class="fas fa-truck"></i> الأسطول</a>
+    <a href="#" class="nav-item"><i class="fas fa-credit-card"></i> المالية</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">التقارير</div>
+    <a href="#" class="nav-item"><i class="fas fa-file-alt"></i> التقارير <span class="badge">12</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-chart-line"></i> التحليلات</a>
+    <a href="#" class="nav-item"><i class="fas fa-cog"></i> الإعدادات</a>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <div>
+        <h1>لوحة التحكم</h1>
+        <p>نظرة عامة على المنصة</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="/admin/" class="btn btn-outline"><i class="fas fa-cog"></i> Django Admin</a>
+        <button class="btn btn-primary"><i class="fas fa-download"></i> تقرير</button>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">إجمالي الطلبات</span>
+            <div class="stat-icon icon-primary"><i class="fas fa-clipboard-list"></i></div>
+        </div>
+        <div class="stat-value" data-stat="total_requests">--</div>
+        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 12% هذا الأسبوع</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">الطلبات النشطة</span>
+            <div class="stat-icon icon-warning"><i class="fas fa-spinner"></i></div>
+        </div>
+        <div class="stat-value" data-stat="active_requests">--</div>
+        <div class="stat-change down"><i class="fas fa-arrow-down"></i> 3% عن الأمس</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">مكتمل اليوم</span>
+            <div class="stat-icon icon-success"><i class="fas fa-check-circle"></i></div>
+        </div>
+        <div class="stat-value" data-stat="completed_today">--</div>
+        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 8% زيادة</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">الإيرادات</span>
+            <div class="stat-icon icon-info"><i class="fas fa-money-bill-wave"></i></div>
+        </div>
+        <div class="stat-value" data-stat="total_revenue">--</div>
+        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 15% هذا الشهر</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">المندوبين النشطين</span>
+            <div class="stat-icon icon-secondary"><i class="fas fa-motorcycle"></i></div>
+        </div>
+        <div class="stat-value">24</div>
+        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 2 جديد</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-header">
+            <span class="stat-label">التقييم العام</span>
+            <div class="stat-icon icon-danger"><i class="fas fa-star"></i></div>
+        </div>
+        <div class="stat-value" data-stat="avg_rating">--</div>
+        <div class="stat-change up"><i class="fas fa-arrow-up"></i> ممتاز</div>
+    </div>
+</div>
+
+<div class="grid-2-1">
+    <div class="card fade-in">
+        <div class="card-header">
+            <h3><i class="fas fa-chart-area"></i> الإيرادات الشهرية</h3>
+            <span class="text-muted">آخر 12 شهر</span>
+        </div>
+        <div class="card-body">
+            <canvas id="revenueChart"></canvas>
+        </div>
+    </div>
+    <div class="card fade-in">
+        <div class="card-header">
+            <h3><i class="fas fa-tasks"></i> النشاط الأخير</h3>
+        </div>
+        <div class="card-body">
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-dot" style="background:#10b981;"></div>
+                    <div class="activity-content">
+                        <p>تم تخزين الأغراض في المستودع</p>
+                        <small>منذ 5 دقائق</small>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-dot" style="background:#6366f1;"></div>
+                    <div class="activity-content">
+                        <p>طلب جديد من العميل أحمد</p>
+                        <small>منذ 12 دقيقة</small>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-dot" style="background:#f59e0b;"></div>
+                    <div class="activity-content">
+                        <p>تم تعيين مندوب للطلب #1524</p>
+                        <small>منذ 20 دقيقة</small>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-dot" style="background:#06b6d4;"></div>
+                    <div class="activity-content">
+                        <p>اكتمال توصيل الطلب #1520</p>
+                        <small>منذ 35 دقيقة</small>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-dot" style="background:#ef4444;"></div>
+                    <div class="activity-content">
+                        <p>إلغاء الطلب #1518 - انتهاء الوقت</p>
+                        <small>منذ ساعة</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="grid-2">
+    <div class="card fade-in">
+        <div class="card-header">
+            <h3><i class="fas fa-chart-bar"></i> الطلبات اليومية</h3>
+        </div>
+        <div class="card-body">
+            <canvas id="requestsChart"></canvas>
+        </div>
+    </div>
+    <div class="card fade-in">
+        <div class="card-header">
+            <h3><i class="fas fa-warehouse"></i> سعة المستودعات</h3>
+        </div>
+        <div class="card-body">
+            <canvas id="warehouseChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="card fade-in">
+    <div class="card-header">
+        <h3><i class="fas fa-list"></i> آخر الطلبات</h3>
+        <button class="btn btn-outline btn-sm">عرض الكل</button>
+    </div>
+    <div class="card-body">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>العميل</th>
+                        <th>المنطقة</th>
+                        <th>الحالة</th>
+                        <th>المبلغ</th>
+                        <th>التاريخ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable-row">
+                        <td>#1524</td>
+                        <td>أحمد محمد</td>
+                        <td>Boulevard City</td>
+                        <td><span class="status status-in-progress">قيد التوصيل</span></td>
+                        <td>١٢٥ ر.س</td>
+                        <td>2026-06-04</td>
+                        <td><button class="btn btn-outline btn-sm">تفاصيل</button></td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td>#1523</td>
+                        <td>سارة أحمد</td>
+                        <td>Riyadh Season</td>
+                        <td><span class="status status-stored">مخزن</span></td>
+                        <td>٨٠ ر.س</td>
+                        <td>2026-06-04</td>
+                        <td><button class="btn btn-outline btn-sm">تفاصيل</button></td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td>#1522</td>
+                        <td>خالد العتيبي</td>
+                        <td>The Groves</td>
+                        <td><span class="status status-completed">مكتمل</span></td>
+                        <td>٢٠٠ ر.س</td>
+                        <td>2026-06-03</td>
+                        <td><button class="btn btn-outline btn-sm">تفاصيل</button></td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td>#1521</td>
+                        <td>نورة الدوسري</td>
+                        <td>Boulevard City</td>
+                        <td><span class="status status-pending">معلق</span></td>
+                        <td>١٥٠ ر.س</td>
+                        <td>2026-06-03</td>
+                        <td><button class="btn btn-outline btn-sm">تفاصيل</button></td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td>#1520</td>
+                        <td>فيصل الحربي</td>
+                        <td>Winter Wonderland</td>
+                        <td><span class="status status-cancelled">ملغي</span></td>
+                        <td>--</td>
+                        <td>2026-06-02</td>
+                        <td><button class="btn btn-outline btn-sm">تفاصيل</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

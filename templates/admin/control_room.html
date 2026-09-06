@@ -1,0 +1,98 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الرئيسية</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> لوحة التحكم</a>
+    <a href="#" class="nav-item active"><i class="fas fa-map-marked-alt"></i> غرفة التحكم</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الإدارة</div>
+    <a href="#" class="nav-item"><i class="fas fa-users"></i> المستخدمين</a>
+    <a href="#" class="nav-item"><i class="fas fa-boxes"></i> المستودعات</a>
+    <a href="#" class="nav-item"><i class="fas fa-truck"></i> الأسطول</a>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>غرفة التحكم</h1>
+    <p>مراقبة العمليات في الوقت الفعلي</p>
+</div>
+
+<div class="control-room">
+    <div class="control-map">
+        <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>الخريطة التفاعلية - تعمل بتقنية Google Maps</p>
+            <small>عند تفعيل API، ستظهر هنا مواقع العملاء والمندوبين والمستودعات</small>
+        </div>
+    </div>
+
+    <div class="control-sidebar">
+        <div class="control-list">
+            <h4><i class="fas fa-chart-simple"></i> مؤشرات فورية</h4>
+            <div class="control-metric">
+                <div class="stat-icon icon-primary"><i class="fas fa-clock"></i></div>
+                <div>
+                    <div class="control-metric-value">18</div>
+                    <div class="control-metric-label">طلبات نشطة</div>
+                </div>
+            </div>
+            <div class="control-metric">
+                <div class="stat-icon icon-success"><i class="fas fa-check"></i></div>
+                <div>
+                    <div class="control-metric-value">142</div>
+                    <div class="control-metric-label">مكتمل اليوم</div>
+                </div>
+            </div>
+            <div class="control-metric">
+                <div class="stat-icon icon-warning"><i class="fas fa-motorcycle"></i></div>
+                <div>
+                    <div class="control-metric-value">12</div>
+                    <div class="control-metric-label">مندوب متاح</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-list">
+            <h4><i class="fas fa-clock-rotate-left"></i> أحدث الطلبات</h4>
+            <div class="control-item">
+                <span class="status status-pending" style="padding:2px 6px;font-size:10px;">جديد</span>
+                <span>أحمد محمد - Boulevard</span>
+            </div>
+            <div class="control-item">
+                <span class="status status-in-progress" style="padding:2px 6px;font-size:10px;">توصيل</span>
+                <span>سارة - Riyadh Season</span>
+            </div>
+            <div class="control-item">
+                <span class="status status-completed" style="padding:2px 6px;font-size:10px;">مكتمل</span>
+                <span>خالد - The Groves</span>
+            </div>
+            <div class="control-item">
+                <span class="status status-stored" style="padding:2px 6px;font-size:10px;">مخزن</span>
+                <span>نورة - Boulevard</span>
+            </div>
+        </div>
+
+        <div class="control-list">
+            <h4><i class="fas fa-location-dot"></i> المندوبين على الخريطة</h4>
+            <div class="control-item">
+                <i class="fas fa-circle text-success" style="font-size:8px;"></i>
+                <span>أحمد - تقاطع الملك فهد</span>
+            </div>
+            <div class="control-item">
+                <i class="fas fa-circle text-success" style="font-size:8px;"></i>
+                <span>محمد - شارع العروبة</span>
+            </div>
+            <div class="control-item">
+                <i class="fas fa-circle text-warning" style="font-size:8px;"></i>
+                <span>فهد - متوقف</span>
+            </div>
+            <div class="control-item">
+                <i class="fas fa-circle text-success" style="font-size:8px;"></i>
+                <span>عمر - طريق الملك</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

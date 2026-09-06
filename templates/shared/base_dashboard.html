@@ -1,0 +1,49 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<div class="layout">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo">D</div>
+            <div>
+                <h2>Deposits</h2>
+                <small>Enterprise Platform</small>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            {% block sidebar_nav %}{% endblock %}
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="navbar">
+            <button class="navbar-btn" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="بحث...">
+            </div>
+            <div class="navbar-actions">
+                <button class="navbar-btn theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="navbar-btn notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="dot"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar">{{ request.user.first_name|first|default:request.user.username|first }}</div>
+                    <div class="user-info">
+                        <div class="name">{{ request.user.get_full_name|default:request.user.username }}</div>
+                        <div class="role">{{ request.user.get_user_type_display }}</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            {% block page_content %}{% endblock %}
+        </div>
+    </main>
+</div>
+{% endblock %}

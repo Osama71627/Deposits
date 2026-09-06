@@ -1,0 +1,19 @@
+*.pyc
+__pycache__/
+*.pyo
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+*.sqlite3
+staticfiles/
+media/
+*.log
+.DS_Store
+*.db
+# Keep Django migrations in version control.
+.idea/
+.vscode/
+*.pem
+*.key

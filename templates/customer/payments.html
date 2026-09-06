@@ -1,0 +1,64 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الخدمات</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> الرئيسية</a>
+    <a href="/customer/new-request/" class="nav-item"><i class="fas fa-plus-circle"></i> طلب تخزين جديد</a>
+    <a href="/customer/my-requests/" class="nav-item"><i class="fas fa-history"></i> طلباتي</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">المحفظة</div>
+    <a href="/customer/payments/" class="nav-item active"><i class="fas fa-wallet"></i> المدفوعات</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الدعم</div>
+    <a href="/customer/tickets/" class="nav-item"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="/customer/profile/" class="nav-item"><i class="fas fa-user"></i> ملفي الشخصي</a>
+</div>
+{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <h1>المدفوعات</h1>
+    <p>سجل المدفوعات والفواتير</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">إجمالي المصروف</span>
+            <div class="stat-icon icon-primary"><i class="fas fa-money-bill-wave"></i></div>
+        </div>
+        <div class="stat-value">١,٢٥٠ ر.س</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">مستحق الدفع</span>
+            <div class="stat-icon icon-warning"><i class="fas fa-clock"></i></div>
+        </div>
+        <div class="stat-value">١٢٥ ر.س</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">فواتير مدفوعة</span>
+            <div class="stat-icon icon-success"><i class="fas fa-check-circle"></i></div>
+        </div>
+        <div class="stat-value">١٥</div>
+    </div>
+</div>
+
+<div class="card fade-in">
+    <div class="card-header"><h3><i class="fas fa-file-invoice"></i> الفواتير</h3></div>
+    <div class="card-body">
+        <div class="table-container">
+            <table>
+                <thead><tr><th>#</th><th>الطلب</th><th>المبلغ</th><th>ضريبة</th><th>الإجمالي</th><th>الحالة</th><th>التاريخ</th><th></th></tr></thead>
+                <tbody>
+                    <tr><td>INV-2024-001</td><td>#1524</td><td>١٠٨.٧٠</td><td>١٦.٣٠</td><td>١٢٥ ر.س</td><td><span class="status status-pending">معلق</span></td><td>2026-06-04</td><td><button class="btn btn-outline btn-sm"><i class="fas fa-download"></i></button></td></tr>
+                    <tr><td>INV-2024-002</td><td>#1520</td><td>٦٩.٥٧</td><td>١٠.٤٣</td><td>٨٠ ر.س</td><td><span class="status status-completed">مدفوع</span></td><td>2026-06-02</td><td><button class="btn btn-outline btn-sm"><i class="fas fa-download"></i></button></td></tr>
+                    <tr><td>INV-2024-003</td><td>#1515</td><td>١٧٣.٩١</td><td>٢٦.٠٩</td><td>٢٠٠ ر.س</td><td><span class="status status-completed">مدفوع</span></td><td>2026-05-28</td><td><button class="btn btn-outline btn-sm"><i class="fas fa-download"></i></button></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

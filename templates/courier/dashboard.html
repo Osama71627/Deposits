@@ -1,0 +1,93 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">المهام</div>
+    <a href="/dashboard/" class="nav-item active"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="#" class="nav-item"><i class="fas fa-list"></i> الطلبات الجديدة <span class="badge">5</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-route"></i> مهامي الحالية</a>
+    <a href="#" class="nav-item"><i class="fas fa-history"></i> سجل التوصيل</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الحساب</div>
+    <a href="#" class="nav-item"><i class="fas fa-wallet"></i> الأرباح</a>
+    <a href="#" class="nav-item"><i class="fas fa-chart-line"></i> الأداء</a>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <div>
+        <h1>مرحباً، {{ request.user.first_name|default:request.user.username }}</h1>
+        <p>حالة التوصيل: <span class="status status-active">متاح</span></p>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-success"><i class="fas fa-check"></i> تسجيل حضور</button>
+        <button class="btn btn-outline"><i class="fas fa-power-off"></i> إنهاء المناوبة</button>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">توصيل اليوم</span>
+            <div class="stat-icon icon-success"><i class="fas fa-check-circle"></i></div>
+        </div>
+        <div class="stat-value">12</div>
+        <div class="stat-change up">هدف اليوم: 20</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">أرباح اليوم</span>
+            <div class="stat-icon icon-primary"><i class="fas fa-money-bill"></i></div>
+        </div>
+        <div class="stat-value">٢٤٠ ر.س</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">التقييم</span>
+            <div class="stat-icon icon-warning"><i class="fas fa-star"></i></div>
+        </div>
+        <div class="stat-value">4.9</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <span class="stat-label">المسافة المقطوعة</span>
+            <div class="stat-icon icon-info"><i class="fas fa-road"></i></div>
+        </div>
+        <div class="stat-value">٤٢ كم</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-tasks"></i> طلبات التوصيل الحالية</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>#</th><th>العميل</th><th>موقع الاستلام</th><th>التسليم</th><th>الحالة</th><th></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1524</td>
+                        <td>أحمد محمد</td>
+                        <td>بوابة 3 - Boulevard</td>
+                        <td>المستودع A</td>
+                        <td><span class="status status-in-progress">استلام</span></td>
+                        <td><button class="btn btn-primary btn-sm">بدء</button></td>
+                    </tr>
+                    <tr>
+                        <td>#1523</td>
+                        <td>سارة أحمد</td>
+                        <td>منطقة الألعاب</td>
+                        <td>المستودع B</td>
+                        <td><span class="status status-pending">انتظار</span></td>
+                        <td><button class="btn btn-outline btn-sm">عرض</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

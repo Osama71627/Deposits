@@ -1,0 +1,68 @@
+# Django Core
+Django>=5.0,<5.2
+djangorestframework>=3.15
+django-cors-headers>=4.3
+django-filter>=24.1
+django-allauth>=0.60
+
+# Database - psycopg 3.x (compatible with Python 3.14)
+psycopg[binary]>=3.2
+redis>=5.0
+
+# Authentication
+PyJWT>=2.8
+djangorestframework-simplejwt>=5.3
+
+# Real-time
+channels>=4.0
+channels-redis>=4.2
+daphne>=4.0
+
+# Payments
+stripe>=10.0
+
+# Media & Files
+Pillow>=10.0
+
+# Notifications
+firebase-admin>=6.5
+
+# Maps
+googlemaps>=4.10
+geopy>=2.4
+shapely>=2.0
+
+# QR & Barcode
+qrcode>=7.4
+python-barcode>=0.15
+
+# PDF & Reports
+reportlab>=4.1
+
+# Excel & CSV
+openpyxl>=3.1
+pandas>=2.0
+
+# Utils
+celery>=5.3
+django-celery-beat>=2.5
+python-decouple>=3.8
+python-dotenv>=1.0
+django-import-export>=4.0
+django-debug-toolbar>=4.3
+whitenoise>=6.6
+django-storages>=1.14
+drf-spectacular>=0.27
+django-mptt>=0.16
+django-taggit>=5.0
+django-simple-history>=3.5
+django-ratelimit>=4.1
+django-guardian>=2.4
+django-axes>=6.0
+django-phonenumber-field>=7.3
+phonenumbers>=8.13
+django-countries>=7.5
+cryptography>=41.0
+gunicorn>=22.0
+uvicorn>=0.29
+psutil>=5.9

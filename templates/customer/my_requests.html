@@ -1,0 +1,96 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الخدمات</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> الرئيسية</a>
+    <a href="/customer/new-request/" class="nav-item"><i class="fas fa-plus-circle"></i> طلب تخزين جديد</a>
+    <a href="/customer/my-requests/" class="nav-item active"><i class="fas fa-history"></i> طلباتي</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">المحفظة</div>
+    <a href="/customer/payments/" class="nav-item"><i class="fas fa-wallet"></i> المدفوعات</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الدعم</div>
+    <a href="/customer/tickets/" class="nav-item"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="/customer/profile/" class="nav-item"><i class="fas fa-user"></i> ملفي الشخصي</a>
+</div>
+{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <div>
+        <h1>طلبات التخزين</h1>
+        <p>جميع طلباتك السابقة والحالية</p>
+    </div>
+    <a href="/customer/new-request/" class="btn btn-primary"><i class="fas fa-plus"></i> طلب جديد</a>
+</div>
+
+<div class="card fade-in">
+    <div class="card-body">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>الموقع</th>
+                        <th>عدد القطع</th>
+                        <th>الحالة</th>
+                        <th>المبلغ</th>
+                        <th>التاريخ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable-row">
+                        <td><strong>#1524</strong></td>
+                        <td>Boulevard City - بوابة 3</td>
+                        <td>3</td>
+                        <td><span class="status status-in-progress">قيد التوصيل</span></td>
+                        <td>١٢٥ ر.س</td>
+                        <td>2026-06-04</td>
+                        <td>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-qrcode"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td><strong>#1520</strong></td>
+                        <td>Riyadh Season</td>
+                        <td>1</td>
+                        <td><span class="status status-stored">مخزن</span></td>
+                        <td>٨٠ ر.س</td>
+                        <td>2026-06-02</td>
+                        <td>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-qrcode"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td><strong>#1515</strong></td>
+                        <td>The Groves</td>
+                        <td>5</td>
+                        <td><span class="status status-completed">مكتمل</span></td>
+                        <td>٢٠٠ ر.س</td>
+                        <td>2026-05-28</td>
+                        <td>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-file-invoice"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="searchable-row">
+                        <td><strong>#1510</strong></td>
+                        <td>Winter Wonderland</td>
+                        <td>2</td>
+                        <td><span class="status status-cancelled">ملغي</span></td>
+                        <td>--</td>
+                        <td>2026-05-20</td>
+                        <td>
+                            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

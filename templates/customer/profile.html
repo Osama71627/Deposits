@@ -1,0 +1,89 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الخدمات</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> الرئيسية</a>
+    <a href="/customer/new-request/" class="nav-item"><i class="fas fa-plus-circle"></i> طلب تخزين جديد</a>
+    <a href="/customer/my-requests/" class="nav-item"><i class="fas fa-history"></i> طلباتي</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">المحفظة</div>
+    <a href="/customer/payments/" class="nav-item"><i class="fas fa-wallet"></i> المدفوعات</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الدعم</div>
+    <a href="/customer/tickets/" class="nav-item"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="/customer/profile/" class="nav-item active"><i class="fas fa-user"></i> ملفي الشخصي</a>
+</div>
+{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <h1>ملفي الشخصي</h1>
+    <p>إدارة معلومات حسابك</p>
+</div>
+
+<div class="grid-2">
+    <div class="card fade-in">
+        <div class="card-header"><h3><i class="fas fa-user-circle"></i> المعلومات الشخصية</h3></div>
+        <div class="card-body">
+            <form>
+                <div style="text-align:center;margin-bottom:20px;">
+                    <div style="width:80px;height:80px;border-radius:50%;background:var(--primary);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;">{{ request.user.first_name|first|default:request.user.username|first }}</div>
+                    <button class="btn btn-outline btn-sm" style="margin-top:8px;"><i class="fas fa-camera"></i> تغيير الصورة</button>
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>الاسم الأول</label>
+                        <input type="text" class="form-control" value="{{ request.user.first_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label>اسم العائلة</label>
+                        <input type="text" class="form-control" value="{{ request.user.last_name }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" class="form-control" value="{{ request.user.email }}">
+                </div>
+                <div class="form-group">
+                    <label>رقم الجوال</label>
+                    <input type="text" class="form-control" placeholder="05xxxxxxxx">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">حفظ التغييرات</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="card fade-in">
+            <div class="card-header"><h3><i class="fas fa-lock"></i> تغيير كلمة المرور</h3></div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>كلمة المرور الحالية</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور الجديدة</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>تأكيد كلمة المرور</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-outline" style="width:100%;">تحديث كلمة المرور</button>
+                </form>
+            </div>
+        </div>
+        <div class="card fade-in">
+            <div class="card-header"><h3><i class="fas fa-gem"></i> نقاط الولاء</h3></div>
+            <div class="card-body" style="text-align:center;">
+                <div style="font-size:36px;font-weight:700;color:var(--accent);">320</div>
+                <div style="font-size:14px;color:var(--text-secondary);">نقطة ولاء</div>
+                <div style="background:var(--bg-tertiary);border-radius:var(--radius-md);margin-top:12px;padding:8px;">
+                    <small class="text-muted">اكسب 10 نقاط لكل طلب تخزين</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

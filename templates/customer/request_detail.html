@@ -1,0 +1,109 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الخدمات</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> الرئيسية</a>
+    <a href="/customer/new-request/" class="nav-item"><i class="fas fa-plus-circle"></i> طلب تخزين جديد</a>
+    <a href="/customer/my-requests/" class="nav-item"><i class="fas fa-history"></i> طلباتي</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">المحفظة</div>
+    <a href="/customer/payments/" class="nav-item"><i class="fas fa-wallet"></i> المدفوعات</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الدعم</div>
+    <a href="/customer/tickets/" class="nav-item"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="/customer/profile/" class="nav-item"><i class="fas fa-user"></i> ملفي الشخصي</a>
+</div>
+{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <div>
+        <h1>تفاصيل الطلب #1524</h1>
+        <p>حالة الطلب: <span class="status status-in-progress">قيد التوصيل</span></p>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-outline"><i class="fas fa-headset"></i> مساعدة</button>
+        <button class="btn btn-danger"><i class="fas fa-times"></i> إلغاء الطلب</button>
+    </div>
+</div>
+
+<div class="grid-2">
+    <div class="card fade-in">
+        <div class="card-header"><h3><i class="fas fa-truck"></i> معلومات التوصيل</h3></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;"><i class="fas fa-user"></i></div>
+                <div><strong>أحمد محمد</strong><br><small style="color:var(--text-muted);">المندوب المسؤول</small></div>
+                <div style="margin-right:auto;"><a href="#" class="btn btn-primary btn-sm"><i class="fas fa-phone"></i> اتصال</a></div>
+            </div>
+            <div style="display:flex;gap:12px;">
+                <div style="flex:1;padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);text-align:center;">
+                    <div style="font-size:12px;color:var(--text-muted);">موقع الاستلام</div>
+                    <div style="font-size:14px;font-weight:600;">Boulevard City</div>
+                </div>
+                <div style="flex:1;padding:12px;background:var(--bg-tertiary);border-radius:var(--radius-md);text-align:center;">
+                    <div style="font-size:12px;color:var(--text-muted);">المستودع</div>
+                    <div style="font-size:14px;font-weight:600;">المستودع A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card fade-in">
+        <div class="card-header"><h3><i class="fas fa-qrcode"></i> رمز الاسترجاع</h3></div>
+        <div class="card-body" style="text-align:center;">
+            <div style="width:180px;height:180px;background:var(--bg-tertiary);margin:0 auto 12px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
+                <i class="fas fa-qrcode" style="font-size:80px;color:var(--text-muted);"></i>
+                <small style="color:var(--text-muted);">رمز QR</small>
+            </div>
+            <p style="font-size:13px;color:var(--text-secondary);">استخدم هذا الرقم عند استلام أغراضك</p>
+            <div style="font-size:24px;font-weight:700;letter-spacing:4px;direction:ltr;">D8F3-A2C1</div>
+            <button class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-download"></i> تحميل QR</button>
+        </div>
+    </div>
+</div>
+
+<div class="card fade-in">
+    <div class="card-header"><h3><i class="fas fa-clock-rotate-left"></i> timeline الطلب</h3></div>
+    <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:0;position:relative;padding-right:20px;">
+            <div style="position:absolute;right:0;top:8px;bottom:8px;width:2px;background:var(--border-color);"></div>
+            <div style="display:flex;gap:12px;padding:8px 0;position:relative;">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--success);position:absolute;right:-5px;top:12px;border:2px solid var(--bg-card);"></div>
+                <div style="margin-right:20px;">
+                    <strong style="font-size:14px;">تم إنشاء الطلب</strong>
+                    <p style="font-size:12px;color:var(--text-muted);">2026-06-04 10:30</p>
+                </div>
+            </div>
+            <div style="display:flex;gap:12px;padding:8px 0;position:relative;">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--success);position:absolute;right:-5px;top:12px;border:2px solid var(--bg-card);"></div>
+                <div style="margin-right:20px;">
+                    <strong style="font-size:14px;">تم تعيين مندوب</strong>
+                    <p style="font-size:12px;color:var(--text-muted);">2026-06-04 10:35</p>
+                </div>
+            </div>
+            <div style="display:flex;gap:12px;padding:8px 0;position:relative;">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--primary);position:absolute;right:-5px;top:12px;border:2px solid var(--bg-card);"></div>
+                <div style="margin-right:20px;">
+                    <strong style="font-size:14px;">قيد التوصيل إلى المستودع</strong>
+                    <p style="font-size:12px;color:var(--text-muted);">2026-06-04 11:00 - الآن</p>
+                </div>
+            </div>
+            <div style="display:flex;gap:12px;padding:8px 0;position:relative;">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--border-color);position:absolute;right:-5px;top:12px;border:2px solid var(--bg-card);"></div>
+                <div style="margin-right:20px;color:var(--text-muted);">
+                    <strong style="font-size:14px;">تم التخزين في المستودع</strong>
+                    <p style="font-size:12px;">قادم</p>
+                </div>
+            </div>
+            <div style="display:flex;gap:12px;padding:8px 0;position:relative;">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--border-color);position:absolute;right:-5px;top:12px;border:2px solid var(--bg-card);"></div>
+                <div style="margin-right:20px;color:var(--text-muted);">
+                    <strong style="font-size:14px;">تم الاستلام من العميل</strong>
+                    <p style="font-size:12px;">قادم</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

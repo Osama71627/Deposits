@@ -1,0 +1,87 @@
+{% extends "shared/base_dashboard.html" %}
+{% block sidebar_nav %}
+<div class="nav-section">
+    <div class="nav-section-title">الخدمات</div>
+    <a href="/dashboard/" class="nav-item"><i class="fas fa-chart-pie"></i> الرئيسية</a>
+    <a href="/customer/new-request/" class="nav-item active"><i class="fas fa-plus-circle"></i> طلب تخزين جديد</a>
+    <a href="/customer/my-requests/" class="nav-item"><i class="fas fa-history"></i> طلباتي</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">المحفظة</div>
+    <a href="/customer/payments/" class="nav-item"><i class="fas fa-wallet"></i> المدفوعات</a>
+</div>
+<div class="nav-section">
+    <div class="nav-section-title">الدعم</div>
+    <a href="/customer/tickets/" class="nav-item"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="/customer/profile/" class="nav-item"><i class="fas fa-user"></i> ملفي الشخصي</a>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>طلب تخزين جديد</h1>
+    <p>قم بتعبئة النموذج لطلب خدمة التخزين</p>
+</div>
+
+<div class="grid-2-1">
+    <div class="card fade-in">
+        <div class="card-header"><h3><i class="fas fa-info-circle"></i> معلومات الطلب</h3></div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label>موقع الاستلام</label>
+                    <input type="text" class="form-control" placeholder="أدخل عنوان الاستلام">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>خط العرض</label>
+                        <input type="text" class="form-control" placeholder="24.7136">
+                    </div>
+                    <div class="form-group">
+                        <label>خط الطول</label>
+                        <input type="text" class="form-control" placeholder="46.6753">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>وصف الأغراض</label>
+                    <textarea class="form-control" rows="3" placeholder="مثال: حقيبة سفر + شنطة ظهر"></textarea>
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>عدد القطع</label>
+                        <input type="number" class="form-control" value="1" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>الوزن التقريبي (كجم)</label>
+                        <input type="number" class="form-control" placeholder="5">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px;">
+                    <i class="fas fa-paper-plane"></i> إرسال الطلب
+                </button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="card fade-in">
+            <div class="card-header"><h3><i class="fas fa-map-marked-alt"></i> موقعك الحالي</h3></div>
+            <div class="card-body">
+                <div style="background:var(--bg-tertiary);border-radius:var(--radius-md);height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--text-muted);">
+                    <i class="fas fa-map-marked-alt" style="font-size:32px;"></i>
+                    <p style="font-size:13px;">الخريطة ستظهر هنا</p>
+                    <small>سيتم تحديد موقعك تلقائياً</small>
+                </div>
+            </div>
+        </div>
+        <div class="card fade-in">
+            <div class="card-header"><h3><i class="fas fa-info-circle"></i> ملاحظات</h3></div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);">
+                <p>• يجب أن تكون داخل المنطقة المسموحة (Boulevard City)</p>
+                <p>• الحد الأقصى 10 قطع لكل طلب</p>
+                <p>• الوزن الأقصى 25 كجم</p>
+                <p>• الدفع عند الاستلام أو عبر البطاقة</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
